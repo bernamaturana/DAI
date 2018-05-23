@@ -11,55 +11,39 @@
         <title>Login</title>
     </head>
     <body onload="validarUser(<?=$usr?>)">
-    
-    <div class="container">
+        <div class="container">
 
-<div class="row">
-    <h1>Lion Rent a Car</h1>
-</div>
-<header class="row justify-content-between center align-items-center">
-    <div class="columna-nav-3 ">
-        <h4><img src="img/logo-lion2.png" alt="Logo" style="width:80px;" ></h4>
-    </div>
-    
-   
-</header>
-    <div id="usrError"></div>
-        <form action="index2.php" onsubmit="return validarLogin(this)">
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="username" class="form-control" id="username" name="username">
-                <div id="usernameError"></div>
+            <div class="row">
+                <h1>Lion Rent a Car</h1>
             </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" class="form-control" id="password" name="password">
-                <div id="passwordError"></div>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                <input class="form-check-input" type="checkbox"> Remember me
-                </label>
-            </div>
-            <button type="submit" class="btn btn-primary">Loguear</button>
-        </form>
 
-		<script src="js/jquery-3.3.1.min.js"></script>
-		<script src="js/popper.min.js"></script>
-		<script type="text/javascript">
-		function validarCampos() {
-			var txtUsername= document.getElementById('username').value;
-			var txtPassword= document.getElementById("password").value;
-			if (txtUsername=="" ) {
-				alert("ingrese username");
-				document.getElementById("username").focus();
-			}
-			if (txtPassword=="") {
-				alert("ingrese password");
-				document.getElementById("password").focus();
-			}
-			
-		}
-		</script>
+            <?php include_once "template/header.php" ?>
+
+            <div id="usrError"></div>
+
+            <form action="index2.php" onsubmit="return validarLogin(this)">
+                <div class="form-group">
+                    <label for="username">Usuario</label>
+                    <input type="username" class="form-control" id="username" name="username">
+                    <div id="usernameError"></div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" class="form-control" id="password" name="password">
+                    <div id="passwordError"></div>
+                </div>
+                <div class="form-group form-check">
+                    <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox"> Recuérdame
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary">Loguear</button>
+            </form>
+
+            <script src="js/jquery-3.3.1.min.js"></script>
+            <script src="js/popper.min.js"></script>
+            
+            <?php include_once "template/footer.php" ?>
+        </div>
     </body>
 </html>
