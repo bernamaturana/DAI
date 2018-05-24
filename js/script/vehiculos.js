@@ -21,7 +21,7 @@ function mostrarModelosPorMarca(marca) {
         }
     }
 
-    xmlhttp.open("GET", "../xml/get-marcas-modelos.php?marca=" + marca, true);
+    xmlhttp.open("GET", "http://localhost/dai/xml/get-marcas-modelos.php?marca=" + marca, true);
     xmlhttp.send();
 }
 
@@ -39,6 +39,47 @@ function mostrarMarcas(){
         }
     }
 
-    xmlhttp.open("GET", "../xml/get-marcas.php?nada=nada", true);
+    xmlhttp.open("GET", "http://localhost/dai/xml/get-marcas.php?nada=nada", true);
     xmlhttp.send();
+}
+
+function validarRegistroVehiculo(){
+    ok = true;
+
+    document.getElementById("patenteError").innerHTML = "";
+    document.getElementById("patenteError").className = "";
+    document.getElementById("marcasError").innerHTML = "";
+    document.getElementById("marcasError").className = "";
+    document.getElementById("modelosError").innerHTML = "";
+    document.getElementById("modelosError").className = "";
+    document.getElementById("colorError").innerHTML = "";
+    document.getElementById("colorError").className = "";
+    document.getElementById("estadoError").innerHTML = "";
+    document.getElementById("estadoError").className = "";
+
+    if (document.getElementById("patente").value == "") {
+        ok = false;
+        document.getElementById("patenteError").innerHTML = "<strong>Debe ingresar una patente.</strong>";
+        document.getElementById("patenteError").className = "alert alert-danger";
+    }
+
+    if (document.getElementById("sMarcas").value == "") {
+        ok = false;
+        document.getElementById("marcasError").innerHTML = "<strong>Debe seleccionar una marca.</strong>";
+        document.getElementById("marcasError").className = "alert alert-danger";
+    }
+
+    if (document.getElementById("sModelos").value == "") {
+        ok = false;
+        document.getElementById("modelosError").innerHTML = "<strong>Debe seleccionar un modelo.</strong>";
+        document.getElementById("modelosError").className = "alert alert-danger";
+    }
+
+    if (document.getElementById("color").value == "") {
+        ok = false;
+        document.getElementById("colorError").innerHTML = "<strong>Debe ingresar un color.</strong>";
+        document.getElementById("colorError").className = "alert alert-danger";
+    }
+
+    return ok;
 }

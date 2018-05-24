@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <script src="js/script/usuarios.js"></script>
 </head>
-<body>
+<body onload="validarInsert(<?php if(isset($_GET["mensaje"])){echo($_GET["mensaje"]);} else{echo("");} ?>)">
     <div class="container">
 
         <div class="row">
@@ -19,7 +19,9 @@
 
         <?php include_once "template/header.php"; ?>
 
-        <form action="login.php" onsubmit="return validarRegistro(this)">
+        <div id="insertErr"></div>
+
+        <form action="registro2.php" onsubmit="return validarRegistro(this)" method="post">
             <div class="form-group">
                 <label for="username">Usuario</label>
                 <input type="username" class="form-control" id="username" name="username">
@@ -36,9 +38,14 @@
                 <div id="repetirError"></div>
             </div>
             <div class="form-group">
-                <label for="realname">Nombre</label>
-                <input type="text" class="form-control" id="realname" name="realname">
-                <div id="realnameError"></div>
+                <label for="name">Nombre</label>
+                <input type="text" class="form-control" id="name" name="name">
+                <div id="nameError"></div>
+            </div>
+            <div class="form-group">
+                <label for="apellido">Apellido</label>
+                <input type="text" class="form-control" id="apellido" name="apellido">
+                <div id="apellidoError"></div>
             </div>
             <button type="submit" class="btn btn-primary">Registrar</button>
         </form>

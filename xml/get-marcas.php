@@ -4,7 +4,7 @@ $xmlDoc->load("marcas-modelos.xml");
 
 $x=$xmlDoc->getElementsByTagName('NombreMarca');
 
-$salida = "<select name=\"\" id=\"dMarcas\" onchange=\"mostrarModelosPorMarca(this.value)\"><option value=\"\">-</option>";
+$salida = "<select class=\"form-control\" name=\"sMarcas\" id=\"sMarcas\" onchange=\"mostrarModelosPorMarca(this.value)\"><option value=\"\">-</option>";
 
 for ($i=0; $i<$x->length; $i++) {
   if ($x->item($i)->nodeType==1) {

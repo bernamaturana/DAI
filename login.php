@@ -10,7 +10,7 @@
         <script src="js/script/usuarios.js"></script>
         <title>Login</title>
     </head>
-    <body onload="validarUser(<?=$usr?>)">
+    <body onload="validarUser(<?php if(isset($_GET["usr"])){echo($_GET["usr"]);} else{echo("true");} ?>)">
         <div class="container">
 
             <div class="row">
@@ -21,7 +21,7 @@
 
             <div id="usrError"></div>
 
-            <form action="index2.php" onsubmit="return validarLogin(this)">
+            <form method="post" action="loginUsuario.php" onsubmit="return validarLogin(this)">
                 <div class="form-group">
                     <label for="username">Usuario</label>
                     <input type="username" class="form-control" id="username" name="username">
