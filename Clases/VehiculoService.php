@@ -5,16 +5,8 @@
     class VehiculoService
     {
         public static function agregar($patente,$marca,$modelo,$color,$estado){
-            echo(" dentro de agregar ");
-            echo($patente);
-            echo($marca);
-            echo($modelo);
-            echo($color);
-            echo($estado);
-            $sql = "INSERT INTO vehiculo ('patente', 'marca', 'modelo', 'color', 'estado') VALUES '$patente', '$marca', '$modelo', '$color', $estado;";
-            $result = Conexion::query($sql);
-            echo("|".$result."|");
-            return $result;
+            $sql = "INSERT INTO vehiculo (patente, marca, modelo, color, estado) VALUES ('$patente', '$marca', '$modelo', '$color', $estado);";
+            return Conexion::query($sql);
         }
         
         public static function vehiculoPorPatente($patente){
@@ -33,7 +25,7 @@
             $vehiculos = array();
 
             $sql = "SELECT * FROM vehiculo;";
-            Conexion::query($sql);
+            $result = Conexion::query($sql);
 
             if (mysqli_num_rows($result) > 0) {
                 while ($fila = mysqli_fetch_array($result)) {

@@ -1,7 +1,14 @@
 <?php
     include_once "Clases/Usuario.php";
     session_start();
-    $user=$_SESSION["usuario"];
+    if (isset($_SESSION["usuario"])) {
+        $user=$_SESSION["usuario"];
+        if ($user->getTipoUsuario()!=0) {
+            header("location: indexVentas.php");
+        }
+    }else{
+        header("location: login.php?usr=false");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +21,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <script src="js/script/vehiculos.js"></script>
-    <title>Document</title>
+    <title>Registro Vehiculo</title>
 </head>
 <body onload="load()">
     <div class="container ">
