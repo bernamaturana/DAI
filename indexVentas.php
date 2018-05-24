@@ -51,6 +51,7 @@
             <section class="container">
                 <main>
                     <a href="consigna.pdf" target="_blank">CONSIGNA</a>
+                    <a href="registroArriendo.php">registro</a>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni quaerat nemo voluptas nisi recusandae hic tempora voluptates tempore sequi pariatur enim, est distinctio quod vel, quidem odit mollitia consectetur. Voluptas.</p>
                 </main>
             </section>

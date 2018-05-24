@@ -52,10 +52,10 @@
             Conexion::query($sql);
         }
 
-        public static function vehiculoDisponiblePorMarca($marca){
+        public static function vehiculosDisponibles(){
             $vehiculos = array();
 
-            $sql = "SELECT * FROM vehiculo WHERE marca = '$marca' AND estado = 0;";
+            $sql = "SELECT * FROM vehiculo WHERE estado = 0;";
             $result = Conexion::query($sql);
 
             if (mysqli_num_rows($result) > 0) {
