@@ -5,8 +5,16 @@
     class VehiculoService
     {
         public static function agregar($patente,$marca,$modelo,$color,$estado){
-            $sql = "INSERT INTO vehiculo (patente, marca, modelo, color, estado) VALUES '$patente', '$marca', '$modelo', '$color', $estado;";
-            return Conexion::query($sql);
+            echo(" dentro de agregar ");
+            echo($patente);
+            echo($marca);
+            echo($modelo);
+            echo($color);
+            echo($estado);
+            $sql = "INSERT INTO vehiculo ('patente', 'marca', 'modelo', 'color', 'estado') VALUES '$patente', '$marca', '$modelo', '$color', $estado;";
+            $result = Conexion::query($sql);
+            echo("|".$result."|");
+            return $result;
         }
         
         public static function vehiculoPorPatente($patente){
